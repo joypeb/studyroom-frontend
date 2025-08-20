@@ -24,7 +24,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: url('./assets/background.jpeg') center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
 }
 
@@ -35,6 +37,22 @@ body {
 .main-content {
   padding-top: 64px; /* MainBar 높이만큼 패딩 */
   min-height: 100vh;
+}
+
+/* 배경 이미지 반응형 조정 */
+@media (max-width: 768px) {
+  body {
+    /* 모바일에서는 fixed attachment 사용 안함 (성능 이슈) */
+    background-attachment: scroll;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    /* 작은 화면에서 배경 이미지 최적화 */
+    background-position: center 40%; /* 더 위쪽에 포커스 */
+  }
 }
 
 /* 반응형 패딩 조정 */
